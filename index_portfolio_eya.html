@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eya Tellili | Portfolio Ingénieur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .project-card { transition: all 0.3s ease; }
+        .project-card:hover { transform: translateY(-5px); shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .img-grid img { transition: opacity 0.3s ease; }
+        .img-grid img:hover { opacity: 0.8; cursor: pointer; }
+        .video-container video { transition: transform 0.3s ease; }
+        .video-container:hover video { transform: scale(1.02); }
+        
+        /* Styles pour le modal */
+        .modal-overlay {
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            animation: slideUp 0.3s ease-out;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Navigation active */
+        .nav-link {
+            position: relative;
+            padding: 8px 0;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #1e40af;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.open {
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index_portfolio_eya.html" class="text-xl font-bold text-blue-900">ET.</a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-6">
+                <div class="flex space-x-6 font-medium text-xs uppercase tracking-widest">
+                    <a href="index_portfolio_eya.html" class="nav-link text-blue-600 font-bold active">Accueil</a>
+                    <a href="experience_eya.html" class="nav-link hover:text-blue-600">Expériences</a>
+                    <a href="projets_eya.html" class="nav-link hover:text-blue-600">Projets</a>
+                    <a href="associative_eya.html" class="nav-link hover:text-blue-600 transition-colors">Vie Associative</a>
+                    <a href="contact_eya.html" class="nav-link hover:text-blue-600">Contact</a>
+                </div>
+                <div class="flex bg-slate-100 rounded-lg p-1">
+                    <button onclick="setLanguage('en')" id="btn-en" class="px-3 py-1 rounded-md text-xs font-bold transition">EN</button>
+                    <button onclick="setLanguage('fr')" id="btn-fr" class="px-3 py-1 rounded-md text-xs font-bold bg-white shadow-sm transition">FR</button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center gap-4">
+                <div class="flex bg-slate-100 rounded-lg p-1">
+                    <button onclick="setLanguage('en')" id="btn-en-mobile" class="px-3 py-1 rounded-md text-xs font-bold transition">EN</button>
+                    <button onclick="setLanguage('fr')" id="btn-fr-mobile" class="px-3 py-1 rounded-md text-xs font-bold bg-white shadow-sm transition">FR</button>
+                </div>
+                <button id="mobileMenuButton" class="text-slate-700 hover:text-blue-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-slate-200">
+            <div class="flex flex-col space-y-4 p-6 font-medium text-sm uppercase tracking-widest">
+                <a href="index_portfolio_eya.html" class="nav-link text-blue-600 font-bold">Accueil</a>
+                <a href="experience_eya.html" class="nav-link hover:text-blue-600">Expériences</a>
+                <a href="projets_eya.html" class="nav-link hover:text-blue-600">Projets</a>
+                <a href="index_portfolio_eya.html#contact" class="nav-link hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header avec hauteur d'écran complet -->
+<header class="min-h-screen flex items-center justify-center px-6 bg-white border-b border-slate-100">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <!-- Contenu texte à gauche -->
+        <div class="md:w-1/2 text-left">
+            <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-6">Eya Tellili</h1>
+            <div class="mb-8">
+                <p class="text-xl md:text-2xl text-blue-700 font-semibold uppercase tracking-wider translate" 
+                   data-en="Mechanical Engineering Student" 
+                   data-fr="Étudiante en Génie Mécanique">
+                    Étudiante en Génie Mécanique 
+                </p>
+                <div class="mt-2 w-24 h-1 bg-blue-200"></div>
+            </div>
+            <p class="mt-8 text-slate-600 text-lg leading-relaxed translate"
+               data-en="Mechanical engineering student interested in product development, materials, and industrial processes. I focus on high-value user experience, quality, and durability."
+               data-fr="Élève-ingénieure en génie mécanique, intéressée par le développement produit, les matériaux et les procédés industriels. Je m'intéresse à la conception de produits à forte valeur d'usage, la qualité et la durabilité.">
+               Élève-ingénieure en génie mécanique, intéressée par le développement produit, les matériaux et les procédés industriels. Je m'intéresse à la conception de produits à forte valeur d'usage, la qualité et la durabilité.
+            </p>
+            
+            <!-- Navigation rapide -->
+            <div class="mt-16 flex flex-wrap gap-6">
+                <a href="experience_eya.html" class="px-8 py-4 bg-gradient-to-r from-blue-800 to-blue-700 text-white font-medium rounded-xl hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Voir mes expériences →
+                </a>
+                <a href="projets_eya.html" class="px-8 py-4 bg-gradient-to-r from-blue-800 to-blue-700 text-white font-medium rounded-xl hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    Découvrir mes projets →
+                </a>
+            </div>
+        </div>
+        
+        <!-- Photo à droite -->
+        <!-- Photo à droite dans un cadre rectangulaire arrondi -->
+        <div class="md:w-1/2 flex justify-center md:justify-end">
+            <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+                <img src="profile-pic (2).png" alt="Eya Tellili" 
+                     class="w-full max-w-md h-auto object-cover aspect-[2/2]">
+                
+                <!-- Effet de bordure subtil -->
+                <div class="absolute inset-0 border-2 border-white/20 rounded-3xl pointer-events-none"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Aperçu -->
+    <section class="py-20 px-6 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+            <span class="h-px w-12 bg-blue-900"></span>
+            <span>Aperçu</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card Expériences -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-briefcase text-blue-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Expériences Professionnelles</h3>
+                <p class="text-slate-600 mb-6">3 stages dans l'industrie mécanique et automobile</p>
+                <a href="experience_eya.html" class="text-blue-700 font-medium hover:text-blue-900 flex items-center gap-2">
+                    Voir les détails <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <!-- Card Projets -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-project-diagram text-red-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Projets Techniques</h3>
+                <p class="text-slate-600 mb-6">3 projets majeurs en simulation et modélisation</p>
+                <a href="projets_eya.html" class="text-blue-700 font-medium hover:text-blue-900 flex items-center gap-2">
+                    Explorer les projets <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <!-- Card Compétences -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-cogs text-green-600 text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Compétences Techniques</h3>
+                <p class="text-slate-600 mb-6">Maîtrise des logiciels CAO et simulation</p>
+                <a href="#competences" class="text-blue-700 font-medium hover:text-blue-900 flex items-center gap-2">
+                    Voir les compétences <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+        <i class="fas fa-users text-purple-600 text-xl"></i>
+    </div>
+    <h3 class="text-xl font-bold mb-4">Vie Associative</h3>
+    <p class="text-slate-600 mb-6">3 rôles de leadership dans des associations étudiantes</p>
+    <a href="associative_eya.html" class="text-blue-700 font-medium hover:text-blue-900 flex items-center gap-2">
+        Découvrir mes engagements <i class="fas fa-arrow-right"></i>
+    </a>
+</div>
+    </section>
+
+    <!-- Compétences -->
+    <section id="competences" class="py-20 px-6 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center translate" data-en="Software & Skills" data-fr="Logiciels & Compétences">Logiciels & Compétences</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold text-blue-900">SolidWorks / CATIA</div>
+            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold text-blue-900">Abaqus / ANSYS</div>
+            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold text-blue-900">Python / C / MATLAB</div>
+            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold text-blue-900">RTM-Worx / Gmsh</div>
+        </div>
+    </section>
+
+    <!-- Footer clair -->
+<footer class="bg-gradient-to-b from-white to-gray-50 pt-16 pb-10 px-6 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 mb-12 text-center md:text-left">
+            <!-- Coordonnées -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Contact Details" data-fr="Coordonnées">Coordonnées</h3>
+                <ul class="space-y-4 text-gray-600">
+                    <li class="flex items-center justify-center md:justify-start gap-3 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-envelope text-blue-500"></i>
+                        <a href="mailto:eya.tellili@etudiant-enit.utm.tn" class="hover:text-blue-600 transition-colors">
+                            eya.tellili@etudiant-enit.utm.tn
+                        </a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3 text-gray-600">
+                        <i class="fas fa-phone text-blue-500"></i>
+                        <span>+216 23 695 271</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3 text-gray-600">
+                        <i class="fas fa-map-marker-alt text-blue-500"></i>
+                        <span>Tunis, Tunisie</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Navigation -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Navigation" data-fr="Navigation">Navigation</h3>
+                <div class="flex flex-col gap-3 text-gray-600">
+                    <a href="index_portfolio_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-home text-xs text-blue-400"></i> 
+                        <span>Accueil</span>
+                    </a>
+                    <a href="experience_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-briefcase text-xs text-blue-400"></i> 
+                        <span>Expériences</span>
+                    </a>
+                    <a href="projets_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-project-diagram text-xs text-blue-400"></i> 
+                        <span>Projets</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/eya-tellili-b5a01a289/" target="_blank" 
+                       class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fab fa-linkedin text-xs text-blue-400"></i> 
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Statut actuel -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Current Status" data-fr="Statut Actuel">Statut Actuel</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 translate" 
+                   data-en="Currently seeking a Graduation Project (PFE) internship starting February 2025." 
+                   data-fr="Actuellement à la recherche d'un stage de Projet de Fin d'Études (PFE) à partir de février 2025.">
+                   Actuellement à la recherche d'un stage de Projet de Fin d'Études (PFE) à partir de février 2025.
+                </p>
+                <div class="inline-flex items-center px-4 py-2 bg-blue-50 rounded-lg border border-blue-100 hover:border-blue-200 transition-colors">
+                    <i class="fas fa-search mr-2 text-blue-500"></i>
+                    <span class="text-sm font-medium text-blue-700 translate" 
+                          data-en="Open to opportunities" 
+                          data-fr="Ouverte aux opportunités">
+                        Ouverte aux opportunités
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Séparateur et copyright -->
+        <div class="pt-8 border-t border-gray-300">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <!-- Copyright -->
+                <div class="text-center md:text-left">
+                    <p class="text-gray-500 text-sm">
+                        © 2025 Eya Tellili — École Nationale d'Ingénieurs de Tunis
+                    </p>
+                </div>
+                
+                <!-- Liens supplémentaires -->
+                <div class="flex items-center gap-6">
+                    <a href="associative_eya.html" class="text-gray-500 hover:text-blue-600 text-sm transition-colors">
+                        Vie Associative
+                    </a>
+                    <a href="#contact" class="text-gray-500 hover:text-blue-600 text-sm transition-colors">
+                        Contact
+                    </a>
+                    <div class="flex items-center gap-2">
+                        <button onclick="setLanguage('fr')" 
+                                class="text-xs px-2 py-1 rounded border border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-800 transition-colors">
+                            FR
+                        </button>
+                        <button onclick="setLanguage('en')" 
+                                class="text-xs px-2 py-1 rounded border border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-800 transition-colors">
+                            EN
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Message supplémentaire -->
+            <div class="mt-6 text-center">
+                <p class="text-gray-400 text-xs">
+                    <i class="fas fa-heart text-red-400 mr-1"></i>
+                    Conçu avec soin pour présenter mon parcours d'ingénieure
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Modal pour agrandir les médias -->
+    <div id="mediaModal" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 modal-overlay">
+        <div class="relative max-w-6xl w-full max-h-[90vh] modal-content">
+            <button 
+                onclick="closeModal()"
+                class="absolute -top-12 right-0 text-white text-3xl hover:text-gray-300 transition-colors z-10"
+                aria-label="Fermer"
+            >
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent" class="rounded-lg overflow-hidden bg-slate-800 h-full flex items-center justify-center">
+                <!-- Contenu chargé dynamiquement -->
+            </div>
+            <div class="text-white text-center mt-4 text-sm">
+                <p class="translate" data-en="Press ESC to close" data-fr="Appuyez sur ESC pour fermer">Appuyez sur ESC pour fermer</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fichier JavaScript commun -->
+    <script src="common.js"></script>
+</body>
+</html>

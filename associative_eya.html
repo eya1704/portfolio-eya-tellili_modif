@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vie Associative | Eya Tellili</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        /* Navigation active */
+        .nav-link {
+            position: relative;
+            padding: 8px 0;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #1e40af;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.open {
+            max-height: 300px;
+        }
+        
+        /* Association cards */
+        .association-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .association-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #1e40af;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #bfdbfe;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 28px;
+            bottom: -20px;
+            width: 2px;
+            background-color: #e2e8f0;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        /* Skills badges */
+        .skill-badge {
+            transition: all 0.2s ease;
+        }
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index_portfolio_eya.html" class="text-xl font-bold text-blue-900 hover:text-blue-700 transition-colors">ET.</a>
+            
+            <div class="flex items-center gap-6">
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-6 font-medium text-xs uppercase tracking-widest">
+                    <a href="index_portfolio_eya.html" class="nav-link hover:text-blue-600 transition-colors">Accueil</a>
+                    <a href="experience_eya.html" class="nav-link hover:text-blue-600 transition-colors">Expériences</a>
+                    <a href="projets_eya.html" class="nav-link hover:text-blue-600 transition-colors">Projets</a>
+                    <a href="associative_eya.html" class="nav-link text-blue-600 font-bold active">Vie Associative</a>
+                    <a href="contact_eya.html" class="nav-link hover:text-blue-600 transition-colors">Contact</a>
+                </div>
+                
+                <!-- Language Switcher -->
+                <div class="flex bg-slate-100 rounded-lg p-1">
+                    <button onclick="setLanguage('en')" id="btn-en" class="px-3 py-1 rounded-md text-xs font-bold transition hover:bg-white">EN</button>
+                    <button onclick="setLanguage('fr')" id="btn-fr" class="px-3 py-1 rounded-md text-xs font-bold bg-white shadow-sm transition">FR</button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="md:hidden text-slate-700 hover:text-blue-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-slate-200">
+            <div class="flex flex-col space-y-4 p-6 font-medium text-sm uppercase tracking-widest">
+                <a href="index_portfolio_eya.html" class="nav-link hover:text-blue-600 transition-colors">Accueil</a>
+                <a href="experience_eya.html" class="nav-link hover:text-blue-600 transition-colors">Expériences</a>
+                <a href="projets_eya.html" class="nav-link hover:text-blue-600 transition-colors">Projets</a>
+                <a href="associative_eya.html" class="nav-link text-blue-600 font-bold">Vie Associative</a>
+                <a href="index_portfolio_eya.html#contact" class="nav-link hover:text-blue-600 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-12 px-6 bg-white border-b border-slate-100">
+        <div class="max-w-4xl mx-auto">
+            <!-- Back button -->
+            <a href="index_portfolio_eya.html" class="inline-flex items-center text-blue-700 hover:text-blue-900 mb-8 transition-colors group">
+                <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                <span class="translate" data-en="Back to Home" data-fr="Retour à l'accueil">Retour à l'accueil</span>
+            </a>
+            
+            <!-- Main title -->
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 translate"
+                data-en="Associative Life"
+                data-fr="Vie Associative">Vie Associative</h1>
+            <p class="text-lg text-slate-600 max-w-2xl leading-relaxed translate"
+               data-en="My commitments in student associations and development of soft skills through community engagement"
+               data-fr="Mes engagements dans les associations étudiantes et développement des compétences transversales à travers l'engagement communautaire">
+               Mes engagements dans les associations étudiantes et développement des compétences transversales à travers l'engagement communautaire
+            </p>
+            
+            <!-- Stats -->
+            <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-900">3</div>
+                    <div class="text-sm text-slate-600 translate" data-en="Associations" data-fr="Associations">Associations</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-900">3+</div>
+                    <div class="text-sm text-slate-600 translate" data-en="Years of Engagement" data-fr="Années d'engagement">Années d'engagement</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-900">2</div>
+                    <div class="text-sm text-slate-600 translate" data-en="Leadership Roles" data-fr="Rôles de leadership">Rôles de leadership</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-900">10+</div>
+                    <div class="text-sm text-slate-600 translate" data-en="Events Organized" data-fr="Événements organisés">Événements organisés</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <!-- Timeline Section -->
+            <section class="mb-20">
+                <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                    <span class="h-px w-12 bg-blue-900"></span>
+                    <span class="translate" data-en="Engagement Timeline" data-fr="Chronologie des Engagements">Chronologie des Engagements</span>
+                </h2>
+                
+                <div class="space-y-16 relative">
+                    <!-- Current Role -->
+                    <div class="timeline-item">
+                        <div class="association-card bg-white rounded-2xl shadow-lg border border-slate-100 p-8">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                                <div>
+                                    <span class="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mb-3">
+                                        Mai 2024 - Mai 2025
+                                    </span>
+                                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Présidente – Club Génie Mécanique ENIT</h3>
+                                    <p class="text-blue-700 font-medium mb-1 translate" 
+                                       data-en="President of Mechanical Engineering Department Club"
+                                       data-fr="Présidente du Club de Département Génie Mécanique">
+                                        Présidente du Club de Département Génie Mécanique
+                                    </p>
+                                    <div class="flex items-center mt-2">
+                                        <i class="fas fa-map-marker-alt text-slate-400 text-sm mr-2"></i>
+                                        <span class="text-slate-600 text-sm">École Nationale d'Ingénieurs de Tunis (ENIT)</span>
+                                    </div>
+                                </div>
+                                <div class="mt-4 md:mt-0">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <i class="fas fa-crown mr-1"></i>
+                                        <span class="translate" data-en="Leadership" data-fr="Leadership">Leadership</span>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="font-semibold text-slate-700 mb-3 flex items-center gap-2">
+                                    <i class="fas fa-tasks text-blue-500"></i>
+                                    <span class="translate" data-en="Main Responsibilities" data-fr="Responsabilités principales">Responsabilités principales</span>
+                                </h4>
+                                <ul class="text-slate-600 space-y-2 ml-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                        <span class="translate" data-en="Management and coordination of club activities and projects" 
+                                              data-fr="Gestion et coordination des activités et projets du club">
+                                            Gestion et coordination des activités et projets du club
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                        <span class="translate" data-en="Organization of technical workshops and conferences" 
+                                              data-fr="Organisation d'ateliers techniques et conférences">
+                                            Organisation d'ateliers techniques et conférences
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                        <span class="translate" data-en="Budget management and resource planning" 
+                                              data-fr="Gestion budgétaire et planification des ressources">
+                                            Gestion budgétaire et planification des ressources
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                        <span class="translate" data-en="Team building and mentoring of new members" 
+                                              data-fr="Team building et mentorat des nouveaux membres">
+                                            Team building et mentorat des nouveaux membres
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-900 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-star text-blue-600"></i>
+                                    <span class="translate" data-en="Key Achievements" data-fr="Réalisations clés">Réalisations clés</span>
+                                </h4>
+                                <ul class="text-blue-800 text-sm space-y-1 ml-4">
+                                    <li class="translate" data-en="Increase in club membership by 40%" data-fr="Augmentation de 40% des adhésions au club">Augmentation de 40% des adhésions au club</li>
+                                    <li class="translate" data-en="Organization of 5 major technical events" data-fr="Organisation de 5 événements techniques majeurs">Organisation de 5 événements techniques majeurs</li>
+                                    <li class="translate" data-en="Implementation of a mentoring program for first-year students" data-fr="Mise en place d'un programme de mentorat pour les étudiants de première année">Mise en place d'un programme de mentorat pour les étudiants de première année</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FabLab ENIT -->
+                    <div class="timeline-item">
+                        <div class="association-card bg-white rounded-2xl shadow-lg border border-slate-100 p-8">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                                <div>
+                                    <span class="inline-block px-4 py-1 bg-green-100 text-green-800 rounded-full text-sm font-bold mb-3">
+                                        Sept 2023 - Mai 2024
+                                    </span>
+                                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Membre Actif – FabLab ENIT</h3>
+                                    <p class="text-green-700 font-medium mb-1 translate" 
+                                       data-en="Active Member - FabLab ENIT"
+                                       data-fr="Membre Actif - FabLab ENIT">
+                                        Membre Actif - FabLab ENIT
+                                    </p>
+                                    <div class="flex items-center mt-2">
+                                        <i class="fas fa-map-marker-alt text-slate-400 text-sm mr-2"></i>
+                                        <span class="text-slate-600 text-sm">FabLab, École Nationale d'Ingénieurs de Tunis</span>
+                                    </div>
+                                </div>
+                                <div class="mt-4 md:mt-0">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <i class="fas fa-tools mr-1"></i>
+                                        <span class="translate" data-en="Technical" data-fr="Technique">Technique</span>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="font-semibold text-slate-700 mb-3 flex items-center gap-2">
+                                    <i class="fas fa-tasks text-green-500"></i>
+                                    <span class="translate" data-en="Main Contributions" data-fr="Contributions principales">Contributions principales</span>
+                                </h4>
+                                <ul class="text-slate-600 space-y-2 ml-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                        <span class="translate" data-en="Participation in prototyping and maker projects" 
+                                              data-fr="Participation aux projets de prototypage et maker">
+                                            Participation aux projets de prototypage et maker
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                        <span class="translate" data-en="Training on 3D printers and laser cutters" 
+                                              data-fr="Formation sur les imprimantes 3D et découpeuses laser">
+                                            Formation sur les imprimantes 3D et découpeuses laser
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                        <span class="translate" data-en="Support for student projects requiring digital fabrication" 
+                                              data-fr="Support aux projets étudiants nécessitant de la fabrication numérique">
+                                            Support aux projets étudiants nécessitant de la fabrication numérique
+                                        </span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                        <span class="translate" data-en="Organization of workshops on digital manufacturing" 
+                                              data-fr="Organisation d'ateliers sur la fabrication numérique">
+                                            Organisation d'ateliers sur la fabrication numérique
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-900 mb-2 flex items-center gap-2">
+                                    <i class="fas fa-star text-green-600"></i>
+                                    <span class="translate" data-en="Key Projects" data-fr="Projets clés">Projets clés</span>
+                                </h4>
+                                <ul class="text-green-800 text-sm space-y-1 ml-4">
+                                    <li class="translate" data-en="3D modeling and printing of mechanical components" data-fr="Modélisation 3D et impression de composants mécaniques">Modélisation 3D et impression de composants mécaniques</li>
+                                    <li class="translate" data-en="Development of educational kits for engineering students" data-fr="Développement de kits éducatifs pour étudiants ingénieurs">Développement de kits éducatifs pour étudiants ingénieurs</li>
+                                    <li class="translate" data-en="Participation in the "Maker Faire Tunisia" event" data-fr="Participation à l'événement "Maker Faire Tunisia"">Participation à l'événement "Maker Faire Tunisia"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+            <!-- Skills Developed Section -->
+            <section class="mb-20">
+                <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                    <span class="h-px w-12 bg-blue-900"></span>
+                    <span class="translate" data-en="Skills Developed" data-fr="Compétences Développées">Compétences Développées</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Leadership & Management -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-users text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 translate" data-en="Leadership & Management" data-fr="Leadership & Gestion">Leadership & Gestion</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Team management and motivation" data-fr="Gestion et motivation d'équipe">Gestion et motivation d'équipe</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Strategic planning and decision making" data-fr="Planification stratégique et prise de décision">Planification stratégique et prise de décision</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Conflict resolution and mediation" data-fr="Résolution de conflits et médiation">Résolution de conflits et médiation</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Budget and resource management" data-fr="Gestion budgétaire et des ressources">Gestion budgétaire et des ressources</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Communication & Organization -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-comments text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 translate" data-en="Communication & Organization" data-fr="Communication & Organisation">Communication & Organisation</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Public speaking and presentation" data-fr="Prise de parole en public et présentation">Prise de parole en public et présentation</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Event planning and coordination" data-fr="Planification et coordination d'événements">Planification et coordination d'événements</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Interpersonal and networking skills" data-fr="Compétences interpersonnelles et réseautage">Compétences interpersonnelles et réseautage</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Multitasking and time management" data-fr="Multitâche et gestion du temps">Multitâche et gestion du temps</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Technical & Project Skills -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-tools text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 translate" data-en="Technical & Project Skills" data-fr="Compétences Techniques & Projets">Compétences Techniques & Projets</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Project planning and execution" data-fr="Planification et exécution de projets">Planification et exécution de projets</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Problem solving and critical thinking" data-fr="Résolution de problèmes et pensée critique">Résolution de problèmes et pensée critique</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Adaptability and flexibility" data-fr="Adaptabilité et flexibilité">Adaptabilité et flexibilité</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="translate" data-en="Collaboration and teamwork" data-fr="Collaboration et travail d'équipe">Collaboration et travail d'équipe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quote Section -->
+            <section class="mb-20">
+                <div class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-12 rounded-3xl text-center">
+                    <i class="fas fa-quote-left text-4xl text-blue-300 mb-6"></i>
+                    <p class="text-2xl font-light italic mb-6 max-w-3xl mx-auto leading-relaxed translate"
+                       data-en="Associative engagement has been a cornerstone of my personal and professional development, allowing me to combine technical skills with leadership and project management in real-world contexts."
+                       data-fr="L'engagement associatif a été une pierre angulaire de mon développement personnel et professionnel, me permettant de combiner compétences techniques avec leadership et gestion de projets dans des contextes réels.">
+                       L'engagement associatif a été une pierre angulaire de mon développement personnel et professionnel, me permettant de combiner compétences techniques avec leadership et gestion de projets dans des contextes réels.
+                    </p>
+                    <div class="h-px w-32 bg-blue-400 mx-auto mb-6"></div>
+                    <p class="font-bold">Eya Tellili</p>
+                    <p class="text-blue-300 text-sm mt-2 translate" data-en="Mechanical Engineering Student & Association President" data-fr="Étudiante en Génie Mécanique & Présidente d'Association">Étudiante en Génie Mécanique & Présidente d'Association</p>
+                </div>
+            </section>
+
+            <!-- Navigation Between Pages -->
+            <div class="py-10 border-t border-slate-200">
+                <div class="flex flex-col sm:flex-row justify-between gap-6">
+                    <a href="projets_eya.html" 
+                       class="flex-1 text-center px-6 py-4 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 group">
+                        <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                        <span class="translate" data-en="View Projects" data-fr="Voir les projets">Voir les projets</span>
+                    </a>
+                    <a href="index_portfolio_eya.html" 
+                       class="flex-1 text-center px-6 py-4 bg-blue-900 text-white font-medium rounded-lg hover:bg-blue-800 transition-colors flex items-center justify-center gap-2 group">
+                        <span class="translate" data-en="Back to Home" data-fr="Retour à l'accueil">Retour à l'accueil</span>
+                        <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer clair -->
+<footer class="bg-gradient-to-b from-white to-gray-50 pt-16 pb-10 px-6 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 mb-12 text-center md:text-left">
+            <!-- Coordonnées -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Contact Details" data-fr="Coordonnées">Coordonnées</h3>
+                <ul class="space-y-4 text-gray-600">
+                    <li class="flex items-center justify-center md:justify-start gap-3 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-envelope text-blue-500"></i>
+                        <a href="mailto:eya.tellili@etudiant-enit.utm.tn" class="hover:text-blue-600 transition-colors">
+                            eya.tellili@etudiant-enit.utm.tn
+                        </a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3 text-gray-600">
+                        <i class="fas fa-phone text-blue-500"></i>
+                        <span>+216 23 695 271</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3 text-gray-600">
+                        <i class="fas fa-map-marker-alt text-blue-500"></i>
+                        <span>Tunis, Tunisie</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Navigation -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Navigation" data-fr="Navigation">Navigation</h3>
+                <div class="flex flex-col gap-3 text-gray-600">
+                    <a href="index_portfolio_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-home text-xs text-blue-400"></i> 
+                        <span>Accueil</span>
+                    </a>
+                    <a href="experience_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-briefcase text-xs text-blue-400"></i> 
+                        <span>Expériences</span>
+                    </a>
+                    <a href="projets_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-project-diagram text-xs text-blue-400"></i> 
+                        <span>Projets</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/eya-tellili-b5a01a289/" target="_blank" 
+                       class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fab fa-linkedin text-xs text-blue-400"></i> 
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Statut actuel -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Current Status" data-fr="Statut Actuel">Statut Actuel</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 translate" 
+                   data-en="Currently seeking a Graduation Project (PFE) internship starting February 2025." 
+                   data-fr="Actuellement à la recherche d'un stage de Projet de Fin d'Études (PFE) à partir de février 2025.">
+                   Actuellement à la recherche d'un stage de Projet de Fin d'Études (PFE) à partir de février 2025.
+                </p>
+                <div class="inline-flex items-center px-4 py-2 bg-blue-50 rounded-lg border border-blue-100 hover:border-blue-200 transition-colors">
+                    <i class="fas fa-search mr-2 text-blue-500"></i>
+                    <span class="text-sm font-medium text-blue-700 translate" 
+                          data-en="Open to opportunities" 
+                          data-fr="Ouverte aux opportunités">
+                        Ouverte aux opportunités
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Séparateur et copyright -->
+        <div class="pt-8 border-t border-gray-300">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <!-- Copyright -->
+                <div class="text-center md:text-left">
+                    <p class="text-gray-500 text-sm">
+                        © 2025 Eya Tellili — École Nationale d'Ingénieurs de Tunis
+                    </p>
+                </div>
+                
+                <!-- Liens supplémentaires -->
+                <div class="flex items-center gap-6">
+                    <a href="associative_eya.html" class="text-gray-500 hover:text-blue-600 text-sm transition-colors">
+                        Vie Associative
+                    </a>
+                    <a href="#contact" class="text-gray-500 hover:text-blue-600 text-sm transition-colors">
+                        Contact
+                    </a>
+                    <div class="flex items-center gap-2">
+                        <button onclick="setLanguage('fr')" 
+                                class="text-xs px-2 py-1 rounded border border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-800 transition-colors">
+                            FR
+                        </button>
+                        <button onclick="setLanguage('en')" 
+                                class="text-xs px-2 py-1 rounded border border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-800 transition-colors">
+                            EN
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Message supplémentaire -->
+            <div class="mt-6 text-center">
+                <p class="text-gray-400 text-xs">
+                    <i class="fas fa-heart text-red-400 mr-1"></i>
+                    Conçu avec soin pour présenter mon parcours d'ingénieure
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Fichier JavaScript commun -->
+    <script src="common.js"></script>
+    
+    <!-- Script pour le menu mobile -->
+    <script>
+        // Menu mobile toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuButton = document.getElementById('mobileMenuButton');
+            
+            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                mobileMenu.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expériences | Eya Tellili</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        /* Navigation active */
+        .nav-link {
+            position: relative;
+            padding: 8px 0;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #1e40af;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.open {
+            max-height: 300px;
+        }
+        
+        /* Timeline styling */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #1e40af;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #bfdbfe;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 28px;
+            bottom: -20px;
+            width: 2px;
+            background-color: #e2e8f0;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index_portfolio_eya.html" class="text-xl font-bold text-blue-900 hover:text-blue-700 transition-colors">ET.</a>
+            
+            <div class="flex items-center gap-6">
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-6 font-medium text-xs uppercase tracking-widest">
+                    <a href="index_portfolio_eya.html" class="nav-link hover:text-blue-600 transition-colors">Accueil</a>
+                    <a href="experience_eya.html" class="nav-link text-blue-600 font-bold active">Expériences</a>
+                    <a href="projets_eya.html" class="nav-link hover:text-blue-600 transition-colors">Projets</a>
+                    <a href="associative_eya.html" class="nav-link hover:text-blue-600 transition-colors">Vie Associative</a>
+                    <a href="contact_eya.html" class="nav-link hover:text-blue-600 transition-colors">Contact</a>
+                </div>
+                
+                <!-- Language Switcher -->
+                <div class="flex bg-slate-100 rounded-lg p-1">
+                    <button onclick="setLanguage('en')" id="btn-en" class="px-3 py-1 rounded-md text-xs font-bold transition hover:bg-white">EN</button>
+                    <button onclick="setLanguage('fr')" id="btn-fr" class="px-3 py-1 rounded-md text-xs font-bold bg-white shadow-sm transition">FR</button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuButton" class="md:hidden text-slate-700 hover:text-blue-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-slate-200">
+            <div class="flex flex-col space-y-4 p-6 font-medium text-sm uppercase tracking-widest">
+                <a href="index_portfolio_eya.html" class="nav-link hover:text-blue-600 transition-colors">Accueil</a>
+                <a href="experience_eya.html" class="nav-link text-blue-600 font-bold">Expériences</a>
+                <a href="projets_eya.html" class="nav-link hover:text-blue-600 transition-colors">Projets</a>
+                <a href="index_portfolio_eya.html#contact" class="nav-link hover:text-blue-600 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-12 px-6 bg-white border-b border-slate-100">
+        <div class="max-w-4xl mx-auto">
+            <!-- Back button -->
+            <a href="index_portfolio_eya.html" class="inline-flex items-center text-blue-700 hover:text-blue-900 mb-8 transition-colors group">
+                <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i>
+                <span class="translate" data-en="Back to Home" data-fr="Retour à l'accueil">Retour à l'accueil</span>
+            </a>
+            
+            <!-- Main title -->
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4 translate"
+                data-en="Professional Experiences"
+                data-fr="Expériences Professionnelles">Expériences Professionnelles</h1>
+            <p class="text-lg text-slate-600 max-w-2xl leading-relaxed translate"
+               data-en="My professional journey in mechanical engineering and industrial processes"
+               data-fr="Mon parcours professionnel dans le génie mécanique et les procédés industriels">
+               Mon parcours professionnel dans le génie mécanique et les procédés industriels
+            </p>
+            
+            <!-- Quick stats -->
+            <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-900">3</div>
+                    <div class="text-sm text-slate-600 translate" data-en="Internships" data-fr="Stages">Stages</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-900">3</div>
+                    <div class="text-sm text-slate-600 translate" data-en="Industries" data-fr="Industries">Industries</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-900">5</div>
+                    <div class="text-sm text-slate-600 translate" data-en="Months" data-fr="Mois">Mois</div>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-900">10+</div>
+                    <div class="text-sm text-slate-600 translate" data-en="Skills" data-fr="Compétences">Compétences</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16 px-6 max-w-5xl mx-auto">
+        <!-- Timeline Section -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                <span class="h-px w-12 bg-blue-900"></span>
+                <span class="translate" data-en="Internship Timeline" data-fr="Chronologie des Stages">Chronologie des Stages</span>
+            </h2>
+            
+            <div class="space-y-16 relative">
+                <!-- Timeline item 1 -->
+                <div class="timeline-item">
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 hover:shadow-xl transition-shadow">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                            <div>
+                                <span class="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mb-3">
+                                    Juin - Août 2025
+                                </span>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">SEGULA Technologies Tunisie</h3>
+                                <p class="text-blue-700 font-medium mb-1 translate" 
+                                   data-en="Engineering Internship - BIW Translator Design" 
+                                   data-fr="Stage ingénieur - Conception d'un translateur Body In White">
+                                    Stage ingénieur - Conception d'un translateur Body In White
+                                </p>
+                            </div>
+                            <div class="mt-4 md:mt-0">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-800">
+                                    <i class="fas fa-car mr-1"></i>
+                                    <span class="translate" data-en="Automotive" data-fr="Automobile">Automobile</span>
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="text-slate-700 space-y-3 ml-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="translate" data-en="Design of a BIW translator for automotive industry" 
+                                      data-fr="Conception d'un translateur Body In White pour l'industrie automobile">
+                                    Conception d'un translateur Body In White pour l'industrie automobile
+                                </span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="translate" data-en="Structural analysis and optimization" 
+                                      data-fr="Analyse structurelle et optimisation">
+                                    Analyse structurelle et optimisation
+                                </span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="translate" data-en="CAD modeling and technical documentation" 
+                                      data-fr="Modélisation CAO et documentation technique">
+                                    Modélisation CAO et documentation technique
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 pt-6 border-t border-slate-100">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">CATIA</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">Abaqus</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">Structural Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline item 2 -->
+                <div class="timeline-item">
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 hover:shadow-xl transition-shadow">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                            <div>
+                                <span class="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mb-3">
+                                    Juillet - Août 2024
+                                </span>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">Treetronix</h3>
+                                <p class="text-blue-700 font-medium mb-1 translate" 
+                                   data-en="Product Development Intern - Sensor Housing" 
+                                   data-fr="Stage développement produit - Capteur environnemental">
+                                    Stage développement produit - Capteur environnemental
+                                </p>
+                            </div>
+                            <div class="mt-4 md:mt-0">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    <i class="fas fa-leaf mr-1"></i>
+                                    <span class="translate" data-en="Environmental Tech" data-fr="Tech Environnementale">Tech Environnementale</span>
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="text-slate-700 space-y-3 ml-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="translate" data-en="Development of an environmental sensor housing" 
+                                      data-fr="Développement d'un boîtier pour capteur environnemental">
+                                    Développement d'un boîtier pour capteur environnemental
+                                </span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="translate" data-en="Material selection and prototyping" 
+                                      data-fr="Sélection des matériaux et prototypage">
+                                    Sélection des matériaux et prototypage
+                                </span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="translate" data-en="Testing and validation of product specifications" 
+                                      data-fr="Tests et validation des spécifications produit">
+                                    Tests et validation des spécifications produit
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 pt-6 border-t border-slate-100">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">SolidWorks</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">Materials</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">Prototyping</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline item 3 -->
+                <div class="timeline-item">
+                    <div class="bg-white rounded-2xl shadow-lg border border-slate-100 p-8 hover:shadow-xl transition-shadow">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                            <div>
+                                <span class="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mb-3">
+                                    Juin - Juillet 2024
+                                </span>
+                                <h3 class="text-2xl font-bold text-slate-900 mb-2">INOPLAST Tunisie</h3>
+                                <p class="text-blue-700 font-medium mb-1 translate" 
+                                   data-en="Internship - Injection & Extrusion Processes" 
+                                   data-fr="Stage exécutant - Procédés d'injection et d'extrusion">
+                                    Stage exécutant - Procédés d'injection et d'extrusion
+                                </p>
+                            </div>
+                            <div class="mt-4 md:mt-0">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                    <i class="fas fa-industry mr-1"></i>
+                                    <span class="translate" data-en="Manufacturing" data-fr="Fabrication">Fabrication</span>
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="text-slate-700 space-y-3 ml-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="translate" data-en="Learning injection and extrusion manufacturing processes" 
+                                      data-fr="Apprentissage des procédés de fabrication par injection et extrusion">
+                                    Apprentissage des procédés de fabrication par injection et extrusion
+                                </span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="translate" data-en="Quality control and process optimization" 
+                                      data-fr="Contrôle qualité et optimisation des procédés">
+                                    Contrôle qualité et optimisation des procédés
+                                </span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <span class="translate" data-en="Analysis of production parameters" 
+                                      data-fr="Analyse des paramètres de production">
+                                    Analyse des paramètres de production
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="mt-6 pt-6 border-t border-slate-100">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">Process Optimization</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">Quality Control</span>
+                                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">Manufacturing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                <span class="h-px w-12 bg-blue-900"></span>
+                <span class="translate" data-en="Acquired Skills" data-fr="Compétences Acquises">Compétences Acquises</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Technical Skills -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-cogs text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 translate" data-en="Technical Skills" data-fr="Compétences Techniques">Compétences Techniques</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-slate-700 mb-2 translate" data-en="CAD Software" data-fr="Logiciels CAO">Logiciels CAO</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">CATIA</span>
+                                <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">SolidWorks</span>
+                                <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">AutoCAD</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-700 mb-2 translate" data-en="Simulation" data-fr="Simulation">Simulation</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm">Abaqus</span>
+                                <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm">ANSYS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-users text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 translate" data-en="Soft Skills" data-fr="Compétences Transversales">Compétences Transversales</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-slate-700 mb-2 translate" data-en="Teamwork & Communication" data-fr="Travail d'équipe & Communication">Travail d'équipe & Communication</h4>
+                            <p class="text-slate-600 text-sm translate" 
+                               data-en="Effective collaboration in multidisciplinary teams and clear technical communication."
+                               data-fr="Collaboration efficace dans des équipes pluridisciplinaires et communication technique claire.">
+                                Collaboration efficace dans des équipes pluridisciplinaires et communication technique claire.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-700 mb-2 translate" data-en="Project Management" data-fr="Gestion de Projet">Gestion de Projet</h4>
+                            <p class="text-slate-600 text-sm translate"
+                               data-en="Planning, execution and follow-up of technical projects respecting deadlines."
+                               data-fr="Planification, exécution et suivi de projets techniques dans le respect des délais.">
+                                Planification, exécution et suivi de projets techniques dans le respect des délais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Between Pages -->
+        <div class="py-10 border-t border-slate-200">
+            <div class="flex flex-col sm:flex-row justify-between gap-6">
+                <a href="index_portfolio_eya.html" 
+                   class="flex-1 text-center px-6 py-4 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 group">
+                    <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                    <span class="translate" data-en="Back to Home" data-fr="Retour à l'accueil">Retour à l'accueil</span>
+                </a>
+                <a href="projets_eya.html" 
+                   class="flex-1 text-center px-6 py-4 bg-blue-900 text-white font-medium rounded-lg hover:bg-blue-800 transition-colors flex items-center justify-center gap-2 group">
+                    <span class="translate" data-en="View Projects" data-fr="Voir les projets">Voir les projets</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer clair -->
+<footer class="bg-gradient-to-b from-white to-gray-50 pt-16 pb-10 px-6 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 mb-12 text-center md:text-left">
+            <!-- Coordonnées -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Contact Details" data-fr="Coordonnées">Coordonnées</h3>
+                <ul class="space-y-4 text-gray-600">
+                    <li class="flex items-center justify-center md:justify-start gap-3 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-envelope text-blue-500"></i>
+                        <a href="mailto:eya.tellili@etudiant-enit.utm.tn" class="hover:text-blue-600 transition-colors">
+                            eya.tellili@etudiant-enit.utm.tn
+                        </a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3 text-gray-600">
+                        <i class="fas fa-phone text-blue-500"></i>
+                        <span>+216 23 695 271</span>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start gap-3 text-gray-600">
+                        <i class="fas fa-map-marker-alt text-blue-500"></i>
+                        <span>Tunis, Tunisie</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Navigation -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Navigation" data-fr="Navigation">Navigation</h3>
+                <div class="flex flex-col gap-3 text-gray-600">
+                    <a href="index_portfolio_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-home text-xs text-blue-400"></i> 
+                        <span>Accueil</span>
+                    </a>
+                    <a href="experience_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-briefcase text-xs text-blue-400"></i> 
+                        <span>Expériences</span>
+                    </a>
+                    <a href="projets_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fas fa-project-diagram text-xs text-blue-400"></i> 
+                        <span>Projets</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/eya-tellili-b5a01a289/" target="_blank" 
+                       class="hover:text-blue-600 transition-colors flex items-center gap-2">
+                        <i class="fab fa-linkedin text-xs text-blue-400"></i> 
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Statut actuel -->
+            <div>
+                <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Current Status" data-fr="Statut Actuel">Statut Actuel</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 translate" 
+                   data-en="Currently seeking a Graduation Project (PFE) internship starting February 2025." 
+                   data-fr="Actuellement à la recherche d'un stage de Projet de Fin d'Études (PFE) à partir de février 2025.">
+                   Actuellement à la recherche d'un stage de Projet de Fin d'Études (PFE) à partir de février 2025.
+                </p>
+                <div class="inline-flex items-center px-4 py-2 bg-blue-50 rounded-lg border border-blue-100 hover:border-blue-200 transition-colors">
+                    <i class="fas fa-search mr-2 text-blue-500"></i>
+                    <span class="text-sm font-medium text-blue-700 translate" 
+                          data-en="Open to opportunities" 
+                          data-fr="Ouverte aux opportunités">
+                        Ouverte aux opportunités
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Séparateur et copyright -->
+        <div class="pt-8 border-t border-gray-300">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <!-- Copyright -->
+                <div class="text-center md:text-left">
+                    <p class="text-gray-500 text-sm">
+                        © 2025 Eya Tellili — École Nationale d'Ingénieurs de Tunis
+                    </p>
+                </div>
+                
+                <!-- Liens supplémentaires -->
+                <div class="flex items-center gap-6">
+                    <a href="associative_eya.html" class="text-gray-500 hover:text-blue-600 text-sm transition-colors">
+                        Vie Associative
+                    </a>
+                    <a href="#contact" class="text-gray-500 hover:text-blue-600 text-sm transition-colors">
+                        Contact
+                    </a>
+                    <div class="flex items-center gap-2">
+                        <button onclick="setLanguage('fr')" 
+                                class="text-xs px-2 py-1 rounded border border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-800 transition-colors">
+                            FR
+                        </button>
+                        <button onclick="setLanguage('en')" 
+                                class="text-xs px-2 py-1 rounded border border-gray-300 hover:border-gray-400 text-gray-600 hover:text-gray-800 transition-colors">
+                            EN
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Message supplémentaire -->
+            <div class="mt-6 text-center">
+                <p class="text-gray-400 text-xs">
+                    <i class="fas fa-heart text-red-400 mr-1"></i>
+                    Conçu avec soin pour présenter mon parcours d'ingénieure
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Fichier JavaScript commun -->
+    <script src="common.js"></script>
+    
+    <!-- Script pour le menu mobile -->
+    <script>
+        // Menu mobile toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuButton = document.getElementById('mobileMenuButton');
+            
+            if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                mobileMenu.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
