@@ -15,7 +15,7 @@
         }
         .project-card:hover { 
             transform: translateY(-8px); 
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             border-color: #3b82f6;
         }
         .img-grid img { transition: all 0.3s ease; }
@@ -87,7 +87,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-white text-slate-900">
 
     <!-- Navigation -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
@@ -173,17 +173,17 @@
     </header>
 
     <!-- Projects Section -->
-    <main class="py-16 bg-slate-900 text-white">
+    <main class="py-16 bg-slate-50 text-slate-900">
         <div class="max-w-6xl mx-auto px-6">
             <!-- Projects Grid -->
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Projet Bateau -->
-                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200">
                     <div class="p-8">
                         <!-- Project header -->
                         <div class="flex items-start justify-between mb-4">
                             <div>
-                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/30 text-blue-300 mb-3 border border-blue-700/30">
+                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 mb-3 border border-blue-200">
                                     <i class="fas fa-ship mr-1"></i>
                                     <span class="translate" data-en="Composite Materials" data-fr="Matériaux Composites">Matériaux Composites</span>
                                 </div>
@@ -195,7 +195,7 @@
                             </div>
                         </div>
                         
-                        <p class="text-slate-400 text-sm mb-6 translate" 
+                        <p class="text-slate-600 text-sm mb-6 translate" 
                            data-en="Comparative study of infusion vs contact techniques. Modeling in SolidWorks and RTM-Worx simulation."
                            data-fr="Étude comparative infusion vs contact. Modélisation SolidWorks et simulation RTM-Worx.">
                            Étude comparative infusion vs contact. Modélisation SolidWorks et simulation RTM-Worx.
@@ -204,7 +204,7 @@
                         <!-- Project media -->
                         <div class="space-y-6">
                             <!-- Video -->
-                            <div class="video-container rounded-xl overflow-hidden bg-slate-700/50">
+                            <div class="video-container rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
                                 <video 
                                     src="Enregistrement de l'écran 2025-04-28 214723.mp4" 
                                     alt="Simulation de stratification" 
@@ -216,13 +216,13 @@
                                     onclick="openModal('Enregistrement de l\'écran 2025-04-28 214723.mp4', 'video')"
                                 >
                                 </video>
-                                <div class="p-3 bg-slate-900/70 text-slate-300 text-sm">
+                                <div class="p-3 bg-white border-t border-slate-200 text-slate-700 text-sm">
                                     <p class="font-medium flex items-center justify-between">
                                         <span class="flex items-center gap-2">
-                                            <i class="fas fa-play-circle text-blue-400"></i>
+                                            <i class="fas fa-play-circle text-blue-500"></i>
                                             <span class="translate" data-en="Simulation video - Click to enlarge" data-fr="Vidéo de simulation - Cliquez pour agrandir">Vidéo de simulation</span>
                                         </span>
-                                        <span class="text-xs text-slate-400 translate" data-en="Click to view" data-fr="Cliquez pour agrandir">Cliquez pour agrandir</span>
+                                        <span class="text-xs text-slate-500 translate" data-en="Click to view" data-fr="Cliquez pour agrandir">Cliquez pour agrandir</span>
                                     </p>
                                 </div>
                             </div>
@@ -230,54 +230,54 @@
                             <!-- Images grid -->
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="group cursor-pointer" onclick="openModal('Capture d\'écran 2025-05-01 211532.png', 'image')">
-                                    <div class="relative rounded-lg overflow-hidden bg-slate-700">
+                                    <div class="relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
                                         <img 
                                             src="Capture d'écran 2025-05-01 211532.png" 
                                             alt="Modélisation SolidWorks" 
                                             class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                                         >
-                                        <div class="absolute inset-0 bg-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                            <i class="fas fa-expand text-white text-xl"></i>
+                                        <div class="absolute inset-0 bg-blue-100/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-expand text-blue-700 text-xl"></i>
                                         </div>
                                     </div>
-                                    <p class="text-xs text-slate-400 mt-2 text-center translate" data-en="SolidWorks Model" data-fr="Modèle SolidWorks">Modèle SolidWorks</p>
+                                    <p class="text-xs text-slate-500 mt-2 text-center translate" data-en="SolidWorks Model" data-fr="Modèle SolidWorks">Modèle SolidWorks</p>
                                 </div>
                                 
                                 <div class="group cursor-pointer" onclick="openModal('Capture d\'écran 2025-04-28 223446.png', 'image')">
-                                    <div class="relative rounded-lg overflow-hidden bg-slate-700">
+                                    <div class="relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
                                         <img 
                                             src="Capture d'écran 2025-04-28 223446.png" 
                                             alt="Résultats simulation" 
                                             class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                                         >
-                                        <div class="absolute inset-0 bg-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                            <i class="fas fa-expand text-white text-xl"></i>
+                                        <div class="absolute inset-0 bg-blue-100/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-expand text-blue-700 text-xl"></i>
                                         </div>
                                     </div>
-                                    <p class="text-xs text-slate-400 mt-2 text-center translate" data-en="Simulation Results" data-fr="Résultats simulation">Résultats simulation</p>
+                                    <p class="text-xs text-slate-500 mt-2 text-center translate" data-en="Simulation Results" data-fr="Résultats simulation">Résultats simulation</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Technologies used -->
-                        <div class="mt-6 pt-6 border-t border-slate-700">
-                            <h4 class="text-sm font-semibold mb-3 text-slate-300 translate" data-en="Technologies Used" data-fr="Technologies utilisées">Technologies utilisées</h4>
+                        <div class="mt-6 pt-6 border-t border-slate-200">
+                            <h4 class="text-sm font-semibold mb-3 text-slate-700 translate" data-en="Technologies Used" data-fr="Technologies utilisées">Technologies utilisées</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">SolidWorks</span>
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">RTM-Worx</span>
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">Finite Element Analysis</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">SolidWorks</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">RTM-Worx</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">Finite Element Analysis</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Pliage en U -->
-                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200">
                     <div class="p-8">
                         <!-- Project header -->
                         <div class="flex items-start justify-between mb-4">
                             <div>
-                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-900/30 text-red-300 mb-3 border border-red-700/30">
+                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 mb-3 border border-red-200">
                                     <i class="fas fa-industry mr-1"></i>
                                     <span class="translate" data-en="Metal Forming" data-fr="Formage Métallique">Formage Métallique</span>
                                 </div>
@@ -289,7 +289,7 @@
                             </div>
                         </div>
                         
-                        <p class="text-slate-400 text-sm mb-6 translate" 
+                        <p class="text-slate-600 text-sm mb-6 translate" 
                            data-en="Developed a bending model respecting the geometric parameters, simulated springback, and proposed solutions to minimize geometric defects."
                            data-fr="Développement d'un modèle de pliage respectant les paramètres géométriques, simulation du retour élastique et proposition de solutions pour minimiser les défauts géométriques.">
                            Développement d'un modèle de pliage respectant les paramètres géométriques, simulation du retour élastique et proposition de solutions pour minimiser les défauts géométriques.
@@ -298,7 +298,7 @@
                         <!-- Project media -->
                         <div class="space-y-6">
                             <!-- Video -->
-                            <div class="video-container rounded-xl overflow-hidden bg-slate-700/50">
+                            <div class="video-container rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
                                 <video 
                                     src="pliage_U.mp4" 
                                     alt="Simulation numérique – Procédé de pliage en U" 
@@ -310,13 +310,13 @@
                                     onclick="openModal('pliage_U.mp4', 'video')"
                                 >
                                 </video>
-                                <div class="p-3 bg-slate-900/70 text-slate-300 text-sm">
+                                <div class="p-3 bg-white border-t border-slate-200 text-slate-700 text-sm">
                                     <p class="font-medium flex items-center justify-between">
                                         <span class="flex items-center gap-2">
-                                            <i class="fas fa-play-circle text-red-400"></i>
+                                            <i class="fas fa-play-circle text-red-500"></i>
                                             <span class="translate" data-en="Bending simulation - Click to enlarge" data-fr="Simulation de pliage - Cliquez pour agrandir">Simulation de pliage</span>
                                         </span>
-                                        <span class="text-xs text-slate-400 translate" data-en="Click to view" data-fr="Cliquez pour agrandir">Cliquez pour agrandir</span>
+                                        <span class="text-xs text-slate-500 translate" data-en="Click to view" data-fr="Cliquez pour agrandir">Cliquez pour agrandir</span>
                                     </p>
                                 </div>
                             </div>
@@ -324,55 +324,55 @@
                             <!-- Images grid -->
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="group cursor-pointer" onclick="openModal('Capture d\'écran 2025-05-16 110911.png', 'image')">
-                                    <div class="relative rounded-lg overflow-hidden bg-slate-700">
+                                    <div class="relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
                                         <img 
                                             src="Capture d'écran 2025-05-16 110911.png" 
                                             alt="Résultats de la simulation" 
                                             class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                                         >
-                                        <div class="absolute inset-0 bg-red-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                            <i class="fas fa-expand text-white text-xl"></i>
+                                        <div class="absolute inset-0 bg-red-100/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-expand text-red-700 text-xl"></i>
                                         </div>
                                     </div>
-                                    <p class="text-xs text-slate-400 mt-2 text-center translate" data-en="Simulation Results" data-fr="Résultats simulation">Résultats simulation</p>
+                                    <p class="text-xs text-slate-500 mt-2 text-center translate" data-en="Simulation Results" data-fr="Résultats simulation">Résultats simulation</p>
                                 </div>
                                 
                                 <div class="group cursor-pointer" onclick="openModal('image_reelle_pliage_u.png', 'image')">
-                                    <div class="relative rounded-lg overflow-hidden bg-slate-700">
+                                    <div class="relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
                                         <img 
                                             src="image_reelle_pliage_u.png" 
                                             alt="Image réelle du pliage" 
                                             class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
                                         >
-                                        <div class="absolute inset-0 bg-red-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                            <i class="fas fa-expand text-white text-xl"></i>
+                                        <div class="absolute inset-0 bg-red-100/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-expand text-red-700 text-xl"></i>
                                         </div>
                                     </div>
-                                    <p class="text-xs text-slate-400 mt-2 text-center translate" data-en="Real Bending" data-fr="Pliage réel">Pliage réel</p>
+                                    <p class="text-xs text-slate-500 mt-2 text-center translate" data-en="Real Bending" data-fr="Pliage réel">Pliage réel</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Technologies used -->
-                        <div class="mt-6 pt-6 border-t border-slate-700">
-                            <h4 class="text-sm font-semibold mb-3 text-slate-300 translate" data-en="Technologies Used" data-fr="Technologies utilisées">Technologies utilisées</h4>
+                        <div class="mt-6 pt-6 border-t border-slate-200">
+                            <h4 class="text-sm font-semibold mb-3 text-slate-700 translate" data-en="Technologies Used" data-fr="Technologies utilisées">Technologies utilisées</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">Abaqus</span>
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">MATLAB</span>
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">Python</span>
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">Finite Element Analysis</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">Abaqus</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">MATLAB</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">Python</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">Finite Element Analysis</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Projet Karting -->
-                <div class="project-card bg-slate-800 rounded-2xl overflow-hidden shadow-2xl md:col-span-2">
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-200 md:col-span-2">
                     <div class="p-8">
                         <!-- Project header -->
                         <div class="flex items-start justify-between mb-4">
                             <div>
-                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-900/30 text-green-300 mb-3 border border-green-700/30">
+                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 mb-3 border border-green-200">
                                     <i class="fas fa-tools mr-1"></i>
                                     <span class="translate" data-en="Mechanical Troubleshooting" data-fr="Diagnostic Mécanique">Diagnostic Mécanique</span>
                                 </div>
@@ -384,7 +384,7 @@
                             </div>
                         </div>
                         
-                        <p class="text-slate-400 text-sm mb-6 translate" 
+                        <p class="text-slate-600 text-sm mb-6 translate" 
                            data-en="Troubleshooting Briggs & Stratton engine and complete geometric modeling on CATIA V5."
                            data-fr="Diagnostic moteur Briggs & Stratton et modélisation complète sur CATIA V5.">
                            Diagnostic moteur Briggs & Stratton et modélisation complète sur CATIA V5.
@@ -395,57 +395,57 @@
                             <!-- Images grid -->
                             <div class="grid grid-cols-3 gap-4">
                                 <div class="group cursor-pointer" onclick="openModal('kart-1.jpg', 'image')">
-                                    <div class="relative rounded-lg overflow-hidden bg-slate-700">
+                                    <div class="relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
                                         <img 
                                             src="kart-1.jpg" 
                                             alt="Karting engine part 1" 
                                             class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
                                         >
-                                        <div class="absolute inset-0 bg-green-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                            <i class="fas fa-expand text-white text-xl"></i>
+                                        <div class="absolute inset-0 bg-green-100/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-expand text-green-700 text-xl"></i>
                                         </div>
                                     </div>
-                                    <p class="text-xs text-slate-400 mt-2 text-center translate" data-en="Engine Analysis" data-fr="Analyse moteur">Analyse moteur</p>
+                                    <p class="text-xs text-slate-500 mt-2 text-center translate" data-en="Engine Analysis" data-fr="Analyse moteur">Analyse moteur</p>
                                 </div>
                                 
                                 <div class="group cursor-pointer" onclick="openModal('kart-2.jpg', 'image')">
-                                    <div class="relative rounded-lg overflow-hidden bg-slate-700">
+                                    <div class="relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
                                         <img 
                                             src="kart-2.jpg" 
                                             alt="Karting engine part 2" 
                                             class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
                                         >
-                                        <div class="absolute inset-0 bg-green-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                            <i class="fas fa-expand text-white text-xl"></i>
+                                        <div class="absolute inset-0 bg-green-100/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-expand text-green-700 text-xl"></i>
                                         </div>
                                     </div>
-                                    <p class="text-xs text-slate-400 mt-2 text-center translate" data-en="CATIA Modeling" data-fr="Modélisation CATIA">Modélisation CATIA</p>
+                                    <p class="text-xs text-slate-500 mt-2 text-center translate" data-en="CATIA Modeling" data-fr="Modélisation CATIA">Modélisation CATIA</p>
                                 </div>
                                 
                                 <div class="group cursor-pointer" onclick="openModal('kart-3.jpg', 'image')">
-                                    <div class="relative rounded-lg overflow-hidden bg-slate-700">
+                                    <div class="relative rounded-lg overflow-hidden bg-slate-100 border border-slate-200">
                                         <img 
                                             src="kart-3.jpg" 
                                             alt="Karting engine part 3" 
                                             class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
                                         >
-                                        <div class="absolute inset-0 bg-green-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                            <i class="fas fa-expand text-white text-xl"></i>
+                                        <div class="absolute inset-0 bg-green-100/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <i class="fas fa-expand text-green-700 text-xl"></i>
                                         </div>
                                     </div>
-                                    <p class="text-xs text-slate-400 mt-2 text-center translate" data-en="Assembly View" data-fr="Vue assemblage">Vue assemblage</p>
+                                    <p class="text-xs text-slate-500 mt-2 text-center translate" data-en="Assembly View" data-fr="Vue assemblage">Vue assemblage</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Technologies used -->
-                        <div class="mt-6 pt-6 border-t border-slate-700">
-                            <h4 class="text-sm font-semibold mb-3 text-slate-300 translate" data-en="Technologies Used" data-fr="Technologies utilisées">Technologies utilisées</h4>
+                        <div class="mt-6 pt-6 border-t border-slate-200">
+                            <h4 class="text-sm font-semibold mb-3 text-slate-700 translate" data-en="Technologies Used" data-fr="Technologies utilisées">Technologies utilisées</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">CATIA V5</span>
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">Engine Diagnostics</span>
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">3D Modeling</span>
-                                <span class="project-tag px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-xs font-medium">Mechanical Analysis</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">CATIA V5</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">Engine Diagnostics</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">3D Modeling</span>
+                                <span class="project-tag px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium border border-slate-200">Mechanical Analysis</span>
                             </div>
                         </div>
                     </div>
