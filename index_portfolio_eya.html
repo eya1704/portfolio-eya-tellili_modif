@@ -44,7 +44,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: #1e40af;
+            background-color: #A67C52;
         }
         
         /* Mobile menu */
@@ -62,16 +62,16 @@
     <!-- Navigation -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index_portfolio_eya.html" class="text-xl font-bold text-blue-900">ET.</a>
+            <a href="index_portfolio_eya.html" class="text-xl font-bold" style="color: #A67C52;">ET.</a>
             
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-6">
                 <div class="flex space-x-6 font-medium text-xs uppercase tracking-widest">
                     <a href="index_portfolio_eya.html" class="nav-link font-bold active" style="color: #A67C52;">Accueil</a>
-                    <a href="experience_eya.html" class="nav-link hover:text-blue-600">Expériences</a>
-                    <a href="projets_eya.html" class="nav-link hover:text-blue-600">Projets</a>
-                    <a href="associative_eya.html" class="nav-link hover:text-blue-600 transition-colors">Vie Associative</a>
-                    <a href="contact_eya.html" class="nav-link hover:text-blue-600">Contact</a>
+                    <a href="experience_eya.html" class="nav-link hover:text-blue-600" style="color: inherit;">Expériences</a>
+                    <a href="projets_eya.html" class="nav-link hover:text-blue-600" style="color: inherit;">Projets</a>
+                    <a href="associative_eya.html" class="nav-link hover:text-blue-600 transition-colors" style="color: inherit;">Vie Associative</a>
+                    <a href="contact_eya.html" class="nav-link hover:text-blue-600" style="color: inherit;">Contact</a>
                 </div>
                 <div class="flex bg-slate-100 rounded-lg p-1">
                     <button onclick="setLanguage('en')" id="btn-en" class="px-3 py-1 rounded-md text-xs font-bold transition">EN</button>
@@ -85,7 +85,7 @@
                     <button onclick="setLanguage('en')" id="btn-en-mobile" class="px-3 py-1 rounded-md text-xs font-bold transition">EN</button>
                     <button onclick="setLanguage('fr')" id="btn-fr-mobile" class="px-3 py-1 rounded-md text-xs font-bold bg-white shadow-sm transition">FR</button>
                 </div>
-                <button id="mobileMenuButton" class="text-slate-700 hover:text-blue-600">
+                <button id="mobileMenuButton" class="text-slate-700" style="color: inherit;">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
@@ -95,9 +95,9 @@
         <div id="mobileMenu" class="mobile-menu md:hidden bg-white border-t border-slate-200">
             <div class="flex flex-col space-y-4 p-6 font-medium text-sm uppercase tracking-widest">
                 <a href="index_portfolio_eya.html" class="nav-link font-bold active" style="color: #A67C52;">Accueil</a>
-                <a href="experience_eya.html" class="nav-link hover:text-blue-600">Expériences</a>
-                <a href="projets_eya.html" class="nav-link hover:text-blue-600">Projets</a>
-                <a href="index_portfolio_eya.html#contact" class="nav-link hover:text-blue-600">Contact</a>
+                <a href="experience_eya.html" class="nav-link hover:text-blue-600" style="color: inherit;">Expériences</a>
+                <a href="projets_eya.html" class="nav-link hover:text-blue-600" style="color: inherit;">Projets</a>
+                <a href="index_portfolio_eya.html#contact" class="nav-link hover:text-blue-600" style="color: inherit;">Contact</a>
             </div>
         </div>
     </nav>
@@ -109,12 +109,13 @@
         <div class="md:w-1/2 text-left">
             <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-6">Eya Tellili</h1>
             <div class="mb-8">
-                <p class="text-xl md:text-2xl text-blue-700 font-semibold uppercase tracking-wider translate" 
+                <p class="text-xl md:text-2xl font-semibold uppercase tracking-wider translate" 
                    data-en="Mechanical Engineering Student" 
-                   data-fr="Étudiante en Génie Mécanique">
+                   data-fr="Étudiante en Génie Mécanique"
+                   style="color: #A67C52;">
                     Étudiante en Génie Mécanique 
                 </p>
-                <div class="mt-2 w-24 h-1 bg-blue-200"></div>
+                <div class="mt-2 w-24 h-1" style="background-color: #A67C52; opacity: 0.3;"></div>
             </div>
             <p class="mt-8 text-slate-600 text-lg leading-relaxed translate"
                data-en="Mechanical engineering student interested in product development, materials, and industrial processes. I focus on high-value user experience, quality, and durability."
@@ -124,10 +125,12 @@
             
             <!-- Navigation rapide -->
             <div class="mt-16 flex flex-wrap gap-6">
-                <a href="experience_eya.html" class="px-8 py-4 bg-gradient-to-r from-blue-800 to-blue-700 text-white font-medium rounded-xl hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <a href="experience_eya.html" class="px-8 py-4 text-white font-medium rounded-xl hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                   style="background: linear-gradient(to right, #A67C52, #8B5A2B);">
                     Voir mes expériences →
                 </a>
-                <a href="projets_eya.html" class="px-8 py-4 bg-gradient-to-r from-blue-800 to-blue-700 text-white font-medium rounded-xl hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <a href="projets_eya.html" class="px-8 py-4 text-white font-medium rounded-xl hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                   style="background: linear-gradient(to right, #A67C52, #8B5A2B);">
                     Découvrir mes projets →
                 </a>
             </div>
@@ -150,55 +153,55 @@
     <!-- Aperçu -->
     <section class="py-20 px-6 max-w-5xl mx-auto">
         <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
-            <span class="h-px w-12 bg-blue-900"></span>
+            <span class="h-px w-12" style="background-color: #A67C52;"></span>
             <span>Aperçu</span>
         </h2>
         
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Card Expériences -->
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-briefcase text-blue-600 text-xl"></i>
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: rgba(166, 124, 82, 0.1);">
+                    <i class="fas fa-briefcase text-xl" style="color: #A67C52;"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-4">Expériences Professionnelles</h3>
                 <p class="text-slate-600 mb-6">3 stages dans l'industrie mécanique et automobile</p>
-                <a href="experience_eya.html" class="text-blue-700 font-medium hover:text-blue-900 flex items-center gap-2">
+                <a href="experience_eya.html" class="font-medium flex items-center gap-2" style="color: #A67C52;">
                     Voir les détails <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
             
             <!-- Card Projets -->
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-project-diagram text-red-600 text-xl"></i>
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: rgba(166, 124, 82, 0.1);">
+                    <i class="fas fa-project-diagram text-xl" style="color: #A67C52;"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-4">Projets Techniques</h3>
                 <p class="text-slate-600 mb-6">3 projets majeurs en simulation et modélisation</p>
-                <a href="projets_eya.html" class="text-blue-700 font-medium hover:text-blue-900 flex items-center gap-2">
+                <a href="projets_eya.html" class="font-medium flex items-center gap-2" style="color: #A67C52;">
                     Explorer les projets <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
             
             <!-- Card Compétences -->
             <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                    <i class="fas fa-cogs text-green-600 text-xl"></i>
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: rgba(166, 124, 82, 0.1);">
+                    <i class="fas fa-cogs text-xl" style="color: #A67C52;"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-4">Compétences Techniques</h3>
                 <p class="text-slate-600 mb-6">Maîtrise des logiciels CAO et simulation</p>
-                <a href="#competences" class="text-blue-700 font-medium hover:text-blue-900 flex items-center gap-2">
+                <a href="#competences" class="font-medium flex items-center gap-2" style="color: #A67C52;">
                     Voir les compétences <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
 
         <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-        <i class="fas fa-users text-purple-600 text-xl"></i>
+    <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-6" style="background-color: rgba(166, 124, 82, 0.1);">
+        <i class="fas fa-users text-xl" style="color: #A67C52;"></i>
     </div>
     <h3 class="text-xl font-bold mb-4">Vie Associative</h3>
     <p class="text-slate-600 mb-6">3 rôles de leadership dans des associations étudiantes</p>
-    <a href="associative_eya.html" class="text-blue-700 font-medium hover:text-blue-900 flex items-center gap-2">
+    <a href="associative_eya.html" class="font-medium flex items-center gap-2" style="color: #A67C52;">
         Découvrir mes engagements <i class="fas fa-arrow-right"></i>
     </a>
 </div>
@@ -208,10 +211,10 @@
     <section id="competences" class="py-20 px-6 max-w-5xl mx-auto">
         <h2 class="text-3xl font-bold mb-12 text-center translate" data-en="Software & Skills" data-fr="Logiciels & Compétences">Logiciels & Compétences</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold text-blue-900">SolidWorks / CATIA</div>
-            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold text-blue-900">Abaqus / ANSYS</div>
-            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold text-blue-900">Python / C / MATLAB</div>
-            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold text-blue-900">RTM-Worx / Gmsh</div>
+            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold" style="color: #A67C52;">SolidWorks / CATIA</div>
+            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold" style="color: #A67C52;">Abaqus / ANSYS</div>
+            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold" style="color: #A67C52;">Python / C / MATLAB</div>
+            <div class="p-6 bg-white border border-slate-100 shadow-sm rounded-xl text-center font-bold" style="color: #A67C52;">RTM-Worx / Gmsh</div>
         </div>
     </section>
 
@@ -224,17 +227,17 @@
                 <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Contact Details" data-fr="Coordonnées">Coordonnées</h3>
                 <ul class="space-y-4 text-gray-600">
                     <li class="flex items-center justify-center md:justify-start gap-3 hover:text-blue-600 transition-colors">
-                        <i class="fas fa-envelope text-blue-500"></i>
+                        <i class="fas fa-envelope" style="color: #A67C52;"></i>
                         <a href="mailto:eya.tellili@etudiant-enit.utm.tn" class="hover:text-blue-600 transition-colors">
                             eya.tellili@etudiant-enit.utm.tn
                         </a>
                     </li>
                     <li class="flex items-center justify-center md:justify-start gap-3 text-gray-600">
-                        <i class="fas fa-phone text-blue-500"></i>
+                        <i class="fas fa-phone" style="color: #A67C52;"></i>
                         <span>+216 23 695 271</span>
                     </li>
                     <li class="flex items-center justify-center md:justify-start gap-3 text-gray-600">
-                        <i class="fas fa-map-marker-alt text-blue-500"></i>
+                        <i class="fas fa-map-marker-alt" style="color: #A67C52;"></i>
                         <span>Tunis, Tunisie</span>
                     </li>
                 </ul>
@@ -245,20 +248,20 @@
                 <h3 class="text-lg font-bold mb-6 text-gray-800 translate" data-en="Navigation" data-fr="Navigation">Navigation</h3>
                 <div class="flex flex-col gap-3 text-gray-600">
                     <a href="index_portfolio_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
-                        <i class="fas fa-home text-xs text-blue-400"></i> 
+                        <i class="fas fa-home text-xs" style="color: #A67C52;"></i> 
                         <span>Accueil</span>
                     </a>
                     <a href="experience_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
-                        <i class="fas fa-briefcase text-xs text-blue-400"></i> 
+                        <i class="fas fa-briefcase text-xs" style="color: #A67C52;"></i> 
                         <span>Expériences</span>
                     </a>
                     <a href="projets_eya.html" class="hover:text-blue-600 transition-colors flex items-center gap-2">
-                        <i class="fas fa-project-diagram text-xs text-blue-400"></i> 
+                        <i class="fas fa-project-diagram text-xs" style="color: #A67C52;"></i> 
                         <span>Projets</span>
                     </a>
                     <a href="https://www.linkedin.com/in/eya-tellili-b5a01a289/" target="_blank" 
                        class="hover:text-blue-600 transition-colors flex items-center gap-2">
-                        <i class="fab fa-linkedin text-xs text-blue-400"></i> 
+                        <i class="fab fa-linkedin text-xs" style="color: #A67C52;"></i> 
                         <span>LinkedIn</span>
                     </a>
                 </div>
@@ -272,11 +275,10 @@
                    data-fr="Actuellement à la recherche d'un stage de Projet de Fin d'Études (PFE) à partir de février 2025.">
                    Actuellement à la recherche d'un stage de Projet de Fin d'Études (PFE) à partir de février 2025.
                 </p>
-                <div class="inline-flex items-center px-4 py-2 bg-blue-50 rounded-lg border border-blue-100 hover:border-blue-200 transition-colors">
-                    <i class="fas fa-search mr-2 text-blue-500"></i>
-                    <span class="text-sm font-medium text-blue-700 translate" 
-                          data-en="Open to opportunities" 
-                          data-fr="Ouverte aux opportunités">
+                <div class="inline-flex items-center px-4 py-2 rounded-lg border transition-colors"
+                     style="background-color: rgba(166, 124, 82, 0.1); border-color: rgba(166, 124, 82, 0.3);">
+                    <i class="fas fa-search mr-2" style="color: #A67C52;"></i>
+                    <span class="text-sm font-medium" style="color: #A67C52;">
                         Ouverte aux opportunités
                     </span>
                 </div>
@@ -347,7 +349,4 @@
     <!-- Fichier JavaScript commun -->
     <script src="common.js"></script>
 </body>
-
 </html>
-
-
